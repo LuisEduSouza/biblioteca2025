@@ -31,6 +31,12 @@ CREATE TABLE Aluno (
     celular VARCHAR (20) NOT NULL
 );
 
+ALTER TABLE aluno ADD COLUMN status_aluno BOOLEAN DEFAULT TRUE;
+ALTER TABLE livro ADD COLUMN status_livro BOOLEAN DEFAULT TRUE;
+ALTER TABLE emprestimo ADD COLUMN status_emprestimo_registro BOOLEAN DEFAULT TRUE;
+
+
+
 CREATE OR REPLACE FUNCTION gerar_ra() RETURNS TRIGGER AS $$
 BEGIN
     NEW.ra := 'AAA' || TO_CHAR(nextval('seq_ra'), 'FM0000');
