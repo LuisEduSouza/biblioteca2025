@@ -250,7 +250,7 @@ export class Livro {
 
         try {
             // Query para consulta no banco de dados
-            const querySelectLivro = `SELECT * FROM Livro;`;
+            const querySelectLivro = `SELECT * FROM Livro WHERE status_livro = TRUE;`;
 
             // executa a query no banco de dados
             const respostaBD = await database.query(querySelectLivro);
@@ -272,7 +272,7 @@ export class Livro {
                 );
                 // adicionando o ID ao objeto
                 novoLivro.setIdLivro(livro.id_livro);
-                novoLivro.setIdLivro(livro.status_livro);
+                novoLivro.setStatusLivro(livro.status_livro);
 
                 // adicionando um livro na lista
                 listaDeLivros.push(novoLivro);
